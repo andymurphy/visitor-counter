@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -19,43 +20,57 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0"
+               x:Name="hourlyCountLabel"
                Text="Hourly Count: "
-               FontSize="Large"
+               FontSize="Medium"
+               HorizontalOptions="Start"/>
+        <!--<Label Grid.Row="0" Grid.Column="1"
+               
+               FontSize="Medium"
+               Text ="0" />-->
+        
+        <Label Grid.Row="1" Grid.Column="0"
+               Text="Maximum:"
+               FontSize="Medium"
                HorizontalOptions="End"/>
-        <Label Grid.Row="0" Grid.Column="1"
-               x:Name="visitorCount"
-               FontSize="Large"
-               Text ="21"
-               />
-        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-               Text="Current Occupency"
+        <Label Grid.Row="1" Grid.Column="1"
+               x:Name="maximumOccupancyLabel"
+               FontSize="Medium"
+               Text="0"/>
+        
+        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+               Text="Current Occupancy"
                FontSize="50"
                HorizontalTextAlignment="Center"/>
-        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-               x:Name="currentOccupancy"               
+        
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+               x:Name="currentOccupancyLabel"               
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
-               Text="37"
+               Text="0"
                FontSize="96"
                FontAttributes="Bold"
                TextColor="Black"/>
+        
         <!-- TODO Abstract the button styles into a Style Resource because they are the same style. -->
-        <Button Grid.Row="3" Grid.Column="0"
+        <Button Grid.Row="4" Grid.Column="0"
                 WidthRequest="130"
                 HeightRequest="120"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Text="-"
                 FontSize="72"
-                Margin="0,0,0,10"/>
-        <Button Grid.Row="3" Grid.Column="1"
+                Margin="0,0,0,10"
+                Clicked="Subtract_Button_Clicked"/>
+        <Button Grid.Row="4" Grid.Column="1"
                 WidthRequest="130"
                 HeightRequest="120"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Text="+"
                 FontSize="72"
-                Margin="0,0,0,10"/>
+                Margin="0,0,0,10"
+                Clicked="Add_Button_Clicked"/>
     </Grid>
 
 </ContentPage>
