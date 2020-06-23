@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Counter.MainPage">
+
+    <Grid>
+        <!-- Place new controls here 
+        <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0"
+               Text="Visitor Count: "
+               FontSize="Large"
+               HorizontalOptions="End"/>
+        <Label Grid.Row="0" Grid.Column="1"
+               x:Name="visitorCount"
+               FontSize="Large"
+               Text ="21"
+               />
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+               Text="Current Occupency"
+               FontSize="50"
+               HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+               x:Name="currentOccupancy"               
+               HorizontalTextAlignment="Center"
+               Text="37"
+               FontSize="96"
+               FontAttributes="Bold"/>
+        <Button Grid.Row="3" Grid.Column="0"
+                WidthRequest="150"
+                HeightRequest="150"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="-"
+                FontSize="72"/>
+        <Button Grid.Row="3" Grid.Column="1"
+                WidthRequest="150"
+                HeightRequest="150"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="+"
+                FontSize="72"/>
+    </Grid>
+
+</ContentPage>
