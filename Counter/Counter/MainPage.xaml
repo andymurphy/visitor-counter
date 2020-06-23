@@ -6,16 +6,12 @@
              mc:Ignorable="d"
              x:Class="Counter.MainPage">
 
-    <Grid>
-        <!-- Place new controls here 
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />-->
+    <Grid>        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -23,7 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0"
-               Text="Visitor Count: "
+               Text="Hourly Count: "
                FontSize="Large"
                HorizontalOptions="End"/>
         <Label Grid.Row="0" Grid.Column="1"
@@ -38,23 +34,28 @@
         <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                x:Name="currentOccupancy"               
                HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
                Text="37"
                FontSize="96"
-               FontAttributes="Bold"/>
+               FontAttributes="Bold"
+               TextColor="Black"/>
+        <!-- TODO Abstract the button styles into a Style Resource because they are the same style. -->
         <Button Grid.Row="3" Grid.Column="0"
-                WidthRequest="150"
-                HeightRequest="150"
+                WidthRequest="130"
+                HeightRequest="120"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Text="-"
-                FontSize="72"/>
+                FontSize="72"
+                Margin="0,0,0,10"/>
         <Button Grid.Row="3" Grid.Column="1"
-                WidthRequest="150"
-                HeightRequest="150"
+                WidthRequest="130"
+                HeightRequest="120"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Text="+"
-                FontSize="72"/>
+                FontSize="72"
+                Margin="0,0,0,10"/>
     </Grid>
 
 </ContentPage>
