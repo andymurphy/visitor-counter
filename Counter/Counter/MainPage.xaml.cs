@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Counter
@@ -26,8 +23,8 @@ namespace Counter
             // TODO Do I need to check for a stored value here or just in App.Xaml.cs in OnStart and/or OnResume
             occupancyCount = 0;
             currentOccupancyLabel.Text = occupancyCount.ToString();
-            maximumOccupancy = 50;
-            maximumOccupancyLabel.Text = maximumOccupancy.ToString();
+            maximumOccupancy = 10;
+            maximumOccupancyLabel.Text = "Maximum: " + maximumOccupancy.ToString();
             hourlyCount = 0;
             hourlyCountLabel.Text = "Hourly Count: " + hourlyCount.ToString();
         }
@@ -38,6 +35,19 @@ namespace Counter
             // Update the occupancy counter
             occupancyCount += 1;
             currentOccupancyLabel.Text = occupancyCount.ToString();
+
+            // Check for the count approaching the maximum
+            if (maximumOccupancy - occupancyCount <= 5)
+            {
+                currentOccupancyLabel.TextColor = Color.Orange;
+            }
+            else if (maximumOccupancy == occupancyCount)
+            {
+                currentOccupancyLabel.TextColor = Color.Red;
+                // TODO Perhaps a reminder could be displayed reminding the user not to let anyone else in.
+            }
+            
+            
 
             // Update the hourly count value
             hourlyCount += 1;
@@ -50,7 +60,24 @@ namespace Counter
             {
                 occupancyCount = 0;
             }
+            // Check to see if the occuoancy is less than a color warning boundary
+            if (maximumOccupancy - occupancyCount == 6)
+            {
+                currentOccupancyLabel.TextColor = Color.Black;
+            }
+            else if (maximumOccupancy - occupancyCount == 1)
+            {
+                currentOccupancyLabel.TextColor = Color.Orange;
+            }
             currentOccupancyLabel.Text = occupancyCount.ToString();
+        }
+
+        // Resets the hourly count
+        // TODO This could have a modal asking for confirmation and prompting the user to enter the hourly figures.
+        private void Hourly_Count_Reset_Clicked(object sender, EventArgs e)
+        {
+            hourlyCount = 0;
+            hourlyCountLabel.Text = "Hourly Count: " + hourlyCount.ToString();
         }
     }
 }
