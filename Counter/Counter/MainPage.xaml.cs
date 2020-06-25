@@ -12,7 +12,7 @@ namespace Counter
     {
         // Holds the current occupancy value for the building
         private int occupancyCount;
-        // Holds the maximum Occupancy value for the building
+        // Holds the maximum Occupancy value for the building. Ask if this will be fixed or need a way of changing in the app
         private int maximumOccupancy;
         // Hodls the hourly count value
         private int hourlyCount;
@@ -23,7 +23,7 @@ namespace Counter
             // TODO Do I need to check for a stored value here or just in App.Xaml.cs in OnStart and/or OnResume
             occupancyCount = 0;
             currentOccupancyLabel.Text = occupancyCount.ToString();
-            maximumOccupancy = 10;
+            maximumOccupancy = 20; 
             maximumOccupancyLabel.Text = "Maximum: " + maximumOccupancy.ToString();
             hourlyCount = 0;
             hourlyCountLabel.Text = "Hourly Count: " + hourlyCount.ToString();
@@ -37,17 +37,15 @@ namespace Counter
             currentOccupancyLabel.Text = occupancyCount.ToString();
 
             // Check for the count approaching the maximum
-            if (maximumOccupancy - occupancyCount <= 5)
-            {
-                currentOccupancyLabel.TextColor = Color.Orange;
-            }
-            else if (maximumOccupancy == occupancyCount)
+            if (occupancyCount >= maximumOccupancy)
             {
                 currentOccupancyLabel.TextColor = Color.Red;
-                // TODO Perhaps a reminder could be displayed reminding the user not to let anyone else in.
+                // TODO Perhaps a reminder could be displayed reminding the user maximum occupancy has been reached and wait for people to leave before anyone else is allowed to enter.
             }
-            
-            
+            else if (maximumOccupancy - occupancyCount <= 5)
+            {
+                currentOccupancyLabel.TextColor = Color.Orange;                
+            }            
 
             // Update the hourly count value
             hourlyCount += 1;

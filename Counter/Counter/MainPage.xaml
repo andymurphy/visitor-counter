@@ -22,7 +22,8 @@
         <Label Grid.Row="0" Grid.Column="0"
                x:Name="hourlyCountLabel"
                Text="Hourly Count: "
-               FontSize="Medium"
+               FontSize="Large"
+               VerticalTextAlignment="Center"
                HorizontalOptions="Start"/>
         <Button Grid.Row="0" Grid.Column="1"
                WidthRequest="100"
@@ -33,8 +34,9 @@
 
         <Label Grid.Row="1" Grid.Column="0"
                Text="Maximum:"
-               FontSize="Medium"
+               FontSize="Large"
                HorizontalOptions="Start"
+               VerticalTextAlignment="Center"
                x:Name="maximumOccupancyLabel"/>
         <!--<Label Grid.Row="1" Grid.Column="1"               
                FontSize="Medium"
