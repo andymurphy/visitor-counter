@@ -20,7 +20,7 @@ namespace Counter
         public MainPage()
         {
             InitializeComponent();
-            // TODO Do I need to check for a stored value here or just in App.Xaml.cs in OnStart and/or OnResume
+            // Set initial values
             occupancyCount = 0;
             currentOccupancyLabel.Text = occupancyCount.ToString();
             maximumOccupancy = 20; 
@@ -40,7 +40,7 @@ namespace Counter
             if (occupancyCount >= maximumOccupancy)
             {
                 currentOccupancyLabel.TextColor = Color.Red;
-                // TODO Perhaps a reminder could be displayed reminding the user maximum occupancy has been reached and wait for people to leave before anyone else is allowed to enter.
+                // TODO A reminder could be displayed telling the user maximum occupancy has been reached and wait for people to leave before anyone else is allowed to enter.
             }
             else if (maximumOccupancy - occupancyCount <= 5)
             {
@@ -58,7 +58,7 @@ namespace Counter
             {
                 occupancyCount = 0;
             }
-            // Check to see if the occuoancy is less than a color warning boundary
+            // Check to see if the occupancy is less than a color warning boundary
             if (maximumOccupancy - occupancyCount == 6)
             {
                 currentOccupancyLabel.TextColor = Color.Black;
@@ -71,7 +71,7 @@ namespace Counter
         }
 
         // Resets the hourly count
-        // TODO This could have a modal asking for confirmation and prompting the user to enter the hourly figures.
+        // TODO This could have a modal asking for confirmation and prompting the user to enter the hourly figures in the visitor register.
         private void Hourly_Count_Reset_Clicked(object sender, EventArgs e)
         {
             hourlyCount = 0;
