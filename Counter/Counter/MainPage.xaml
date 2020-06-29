@@ -56,8 +56,7 @@
                VerticalTextAlignment="Center"
                Text=""
                FontSize="96"
-               FontAttributes="Bold"
-               TextColor="Black"/>
+               FontAttributes="Bold"/>
         
         <!-- TODO Abstract the button styles into a Style Resource because they are the same style. -->
         <Button Grid.Row="4" Grid.Column="0"

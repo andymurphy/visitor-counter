@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
+using Xamarin.Forms.Markup;
 
 namespace Counter
 {
@@ -11,7 +12,7 @@ namespace Counter
     public partial class MainPage : ContentPage
     {
         // Holds the current occupancy value for the building
-        private int occupancyCount;
+        public int occupancyCount;
         // Holds the maximum Occupancy value for the building. Ask if this will be fixed or need a way of changing in the app
         private int maximumOccupancy;
         // Hodls the hourly count value
@@ -61,7 +62,7 @@ namespace Counter
             // Check to see if the occupancy is less than a color warning boundary
             if (maximumOccupancy - occupancyCount == 6)
             {
-                currentOccupancyLabel.TextColor = Color.Black;
+                currentOccupancyLabel.TextColor = Color.Default;
             }
             else if (maximumOccupancy - occupancyCount == 1)
             {
