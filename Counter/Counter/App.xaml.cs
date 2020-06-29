@@ -9,9 +9,12 @@ namespace Counter
     {
         // \key used for storing preference
         const string savedOccupancyCount = "savedOccupancyCount";
+        const string savedHourlyCount = "savedHourlyCount";
 
         // Holds the current occupancy value for the building
-        public static int occupancyCount { get; set; }        
+        public static int occupancyCount { get; set; }
+        // Holds the hourly count value
+        public static int hourlyCount { get; set; }
 
         public App()
         {
@@ -32,14 +35,25 @@ namespace Counter
             {
                 occupancyCount = 0;
             }
+            if (Properties.ContainsKey(savedHourlyCount))
+            {
+                hourlyCount = (int)Properties[savedHourlyCount];
+                Console.WriteLine("Loading hourlyCount value of " + hourlyCount.ToString());
+            }
+            else
+            {
+                hourlyCount = 0;
+            }
         }
 
         protected override void OnSleep()
         {
-            // TODO Might need to store the occupancyCount here to persist the value
-            // This might mean putting the variable in this file and providing getter setter for MainPage to access
+            // Store the occupancyCount here to persist the value if the app is destroyed by the OS when app switching            
             Console.WriteLine("OnSleep, saving occupancyCount value of " + occupancyCount.ToString());
             Properties[savedOccupancyCount] = occupancyCount;
+            // Store the hourly count as well
+            Console.WriteLine("Saving hourly count of " + hourlyCount.ToString());
+            Properties[savedHourlyCount] = hourlyCount;
         }
 
         protected override void OnResume()

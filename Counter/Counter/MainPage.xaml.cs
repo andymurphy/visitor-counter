@@ -13,18 +13,14 @@ namespace Counter
     {        
         // Holds the maximum Occupancy value for the building. Ask if this will be fixed or need a way of changing in the app
         private int maximumOccupancy;
-        // Hodls the hourly count value
-        private int hourlyCount;
+        
 
         public MainPage()
-        {
-            
+        {            
             InitializeComponent();            
             
             maximumOccupancy = 20; 
-            maximumOccupancyLabel.Text = "Maximum: " + maximumOccupancy.ToString();
-            hourlyCount = 0;
-            hourlyCountLabel.Text = "Hourly Count: " + hourlyCount.ToString();
+            maximumOccupancyLabel.Text = "Maximum: " + maximumOccupancy.ToString();            
         }
 
         // Sets the initial values of the counts
@@ -32,6 +28,8 @@ namespace Counter
         {
             base.OnAppearing();
             currentOccupancyLabel.Text = App.occupancyCount.ToString();
+            // TODO Check to see if a font colour change is needed. Make a method
+            hourlyCountLabel.Text = "Hourly Count: " + App.hourlyCount.ToString();
         }
 
         // Event handlers for the + and - buttons so that increase ior decrease the current occupency
@@ -50,11 +48,11 @@ namespace Counter
             else if (maximumOccupancy - App.occupancyCount <= 5)
             {
                 currentOccupancyLabel.TextColor = Color.Orange;                
-            }            
+            }
 
             // Update the hourly count value
-            hourlyCount += 1;
-            hourlyCountLabel.Text = "Hourly Count: " +  hourlyCount.ToString();
+            App.hourlyCount += 1;
+            hourlyCountLabel.Text = "Hourly Count: " + App.hourlyCount.ToString();
         }
         private void Subtract_Button_Clicked(object sender, EventArgs e)
         {
@@ -79,8 +77,8 @@ namespace Counter
         // TODO This could have a modal asking for confirmation and prompting the user to enter the hourly figures in the visitor register.
         private void Hourly_Count_Reset_Clicked(object sender, EventArgs e)
         {
-            hourlyCount = 0;
-            hourlyCountLabel.Text = "Hourly Count: " + hourlyCount.ToString();
+            App.hourlyCount = 0;
+            hourlyCountLabel.Text = "Hourly Count: " + App.hourlyCount.ToString();
         }
     }
 }
