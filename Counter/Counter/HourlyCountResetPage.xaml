@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Counter.HourlyCountResetPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     WidthRequest="150">
+            <Label Text="Are you sure you want to reset the hourly count?"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+            <Button Text="Ok"
+                    HorizontalOptions="Center"
+                    WidthRequest="130"
+                    Clicked="OnOkClicked"/>
+            <Button Text="Cancel"
+                    HorizontalOptions="Center"
+                    WidthRequest ="100"
+                    Clicked="OnCancelClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

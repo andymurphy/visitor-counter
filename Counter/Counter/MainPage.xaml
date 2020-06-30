@@ -36,7 +36,7 @@
                FontSize="Medium"
                HorizontalOptions="End"
                Text ="Reset"
-                Clicked="Hourly_Count_Reset_Clicked"/>
+                Clicked="HourlyCountResetClicked"/>
 
         <Label Grid.Row="1" Grid.Column="0"
                Text="Maximum:"
@@ -66,7 +66,7 @@
                 Text="-"
                 FontSize="72"
                 Margin="0,0,0,10"
-                Clicked="Subtract_Button_Clicked"/>
+                Clicked="SubtractButtonClicked"/>
         <Button Grid.Row="4" Grid.Column="1"
                 WidthRequest="130"                
                 HorizontalOptions="Center"
@@ -74,7 +74,7 @@
                 Text="+"
                 FontSize="72"
                 Margin="0,0,0,10"
-                Clicked="Add_Button_Clicked"/>
+                Clicked="AddButtonClicked"/>
     </Grid>
 
 </ContentPage>

@@ -33,7 +33,7 @@ namespace Counter
         }
 
         // Event handlers for the + and - buttons so that increase ior decrease the current occupency
-        private void Add_Button_Clicked(object sender, EventArgs e)
+        private void AddButtonClicked(object sender, EventArgs e)
         {
             // Update the occupancy counter
             App.occupancyCount += 1;
@@ -54,7 +54,7 @@ namespace Counter
             App.hourlyCount += 1;
             hourlyCountLabel.Text = "Hourly Count: " + App.hourlyCount.ToString();
         }
-        private void Subtract_Button_Clicked(object sender, EventArgs e)
+        private void SubtractButtonClicked(object sender, EventArgs e)
         {
             App.occupancyCount -= 1;
             if (App.occupancyCount < 0)
@@ -73,11 +73,12 @@ namespace Counter
             currentOccupancyLabel.Text = App.occupancyCount.ToString();
         }
 
-        // Resets the hourly count
-        // TODO This could have a modal asking for confirmation and prompting the user to enter the hourly figures in the visitor register.
-        private void Hourly_Count_Reset_Clicked(object sender, EventArgs e)
+        // Resets the hourly count        
+        private async void HourlyCountResetClicked(object sender, EventArgs e)
         {
-            App.hourlyCount = 0;
+            // Check the user wanted to do this.
+            await Navigation.PushModalAsync(new HourlyCountResetPage());   
+            // Refresh the hourly count on the UI
             hourlyCountLabel.Text = "Hourly Count: " + App.hourlyCount.ToString();
         }
     }
