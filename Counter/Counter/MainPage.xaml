@@ -54,14 +54,13 @@
                x:Name="currentOccupancyLabel"               
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
-               Text=""
+               Text="42"
                FontSize="96"
                FontAttributes="Bold"/>
         
         <!-- TODO Abstract the button styles into a Style Resource because they are the same style. -->
         <Button Grid.Row="4" Grid.Column="0"
-                WidthRequest="130"
-                HeightRequest="120"
+                WidthRequest="130"                
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Text="-"
@@ -69,8 +68,7 @@
                 Margin="0,0,0,10"
                 Clicked="Subtract_Button_Clicked"/>
         <Button Grid.Row="4" Grid.Column="1"
-                WidthRequest="130"
-                HeightRequest="120"
+                WidthRequest="130"                
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Text="+"
