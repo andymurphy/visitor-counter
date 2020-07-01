@@ -2,7 +2,6 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-
 namespace Counter
 {
     public partial class App : Application

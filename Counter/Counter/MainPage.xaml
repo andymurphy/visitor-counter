@@ -6,12 +6,24 @@
              mc:Ignorable="d"
              x:Class="Counter.MainPage">
     <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness">
+        <OnPlatform x:TypeArguments="Thickness"><!-- Avoid iOS status bar. -->
             <On Platform="iOS" Value="0,20,0,0"/>
             <On Platform="Android" Value="0,0,0,0"/>
         </OnPlatform>
     </ContentPage.Padding>
-
+    <!-- Resources-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- This style defines the values for the buttons on this page. -->
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="72"/>
+                <Setter Property="WidthRequest" Value="130"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -36,7 +48,7 @@
                FontSize="Medium"
                HorizontalOptions="End"
                Text ="Reset"
-                Clicked="HourlyCountResetClicked"/>
+               Clicked="HourlyCountResetClicked"/>
 
         <Label Grid.Row="1" Grid.Column="0"
                Text="Maximum:"
@@ -58,21 +70,12 @@
                FontSize="96"
                FontAttributes="Bold"/>
         
-        <!-- TODO Abstract the button styles into a Style Resource because they are the same style. -->
         <Button Grid.Row="4" Grid.Column="0"
-                WidthRequest="130"                
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Text="-"
-                FontSize="72"
+                Text="-"                
                 Margin="0,0,0,10"
                 Clicked="SubtractButtonClicked"/>
-        <Button Grid.Row="4" Grid.Column="1"
-                WidthRequest="130"                
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Text="+"
-                FontSize="72"
+        <Button Grid.Row="4" Grid.Column="1" 
+                Text="+"                
                 Margin="0,0,0,10"
                 Clicked="AddButtonClicked"/>
     </Grid>

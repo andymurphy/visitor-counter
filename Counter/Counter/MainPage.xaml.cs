@@ -1,8 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Text;
 using Xamarin.Forms;
-using Xamarin.Forms.Markup;
 
 namespace Counter
 {
